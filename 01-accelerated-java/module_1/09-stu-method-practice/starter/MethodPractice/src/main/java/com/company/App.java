@@ -5,12 +5,10 @@ import java.util.List;
 
 public class App {
 
-
 	// subtract
     public static int subtract(int a, int b) {
         return a-b;
     }
-
 
 	// subtractOrZero
     public static int subtractOrZero(int a, int b) {
@@ -32,7 +30,6 @@ public class App {
         }
     }
 
-
 	// min
     public static int min(int a, int b, int c) {
         if (a < b && a < c) {
@@ -43,7 +40,6 @@ public class App {
             return c;
         }
     }
-
 
 	// isLarger
     public static boolean isLarger(int a, int b) {
