@@ -1,8 +1,10 @@
 package com.company;
 
+import java.util.*;
+
 public class App {
 
-    public static int total (int[] numbers) {
+    public static int total (List<Integer> numbers) {
 
         int sum = 0;
         for(int num : numbers) {
@@ -12,21 +14,21 @@ public class App {
         return sum;
     }
 
-    public static int totalEven (int[] numbers) {
+    public static int totalEven (List<Integer> numbers) {
 
         int sum = 0;
-        for(int i = 0; i < numbers.length; i += 2) {
-            sum += numbers[i];
+        for(int i = 0; i < numbers.size(); i += 2) {
+            sum += numbers.get(i);
         }
 
         return sum;
     }
 
-    public static String[] swapFirstAndLast(String[] strings) {
+    public static List<String> swapFirstAndLast(List<String> strings) {
 
-        String temp = strings[0];
-        strings[0] = strings[ strings.length - 1 ];
-        strings[ strings.length - 1 ] = temp;
+        String temp = strings.get(0);
+        strings.set(0, (strings.get(strings.size() - 1)));
+        strings.set((strings.size() - 1), temp);
 
         return strings;
     }
