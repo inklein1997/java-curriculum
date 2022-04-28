@@ -1,6 +1,6 @@
 package com.company;
 
-public class Developer {
+public class Developer  extends StaffMember{
     public Developer(String name, int hireYear, String preferredProgrammingLanguage) {
         this.name = name;
         this.hireYear = hireYear;
@@ -9,22 +9,26 @@ public class Developer {
 
     public Developer() {}
 
-    private String name;
+    protected String name;
     private int hireYear;
     private String preferredProgrammingLanguage;
 
+    public void submitTimeCard() {
+        System.out.println(this.name = " says: PAY ME!");
+    }
+
     public int estimateStoryPoints() {
-        System.out.println("Hmmm.... I think we should do 3 story points");
+        System.out.println(this.name + " says: Hmmm.... I think we should do 3 story points");
         return 3;
     }
 
     public void checkInCode() {
-        System.out.println("git add -A; git commit -m; git push");
+        System.out.println(this.name + " types: git add -A; git commit -m; git push");
     }
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
 
     public int getHireYear() {
         return hireYear;
