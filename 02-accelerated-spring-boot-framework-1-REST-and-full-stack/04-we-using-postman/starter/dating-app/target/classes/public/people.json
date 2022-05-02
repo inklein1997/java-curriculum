@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Sam",
+    "age": 25,
+    "bio": "I am sam."
+  },
+  {
+    "id": 2,
+    "name": "Sue",
+    "age": 27,
+    "bio": "I like Reiki and beach yoga. I love my cat and all energies on all ephemeral planes."
+  },
+  {
+    "id": 3,
+    "name": "Tony",
+    "age": 24,
+    "bio": "I fix cars, weld, and do jazzercise. "
+  },
+  {
+    "id": 4,
+    "name": "Simone",
+    "age": 33,
+    "bio": "I am a jazz singer and travel extensively to perform. Looking for someone who can keep up with my schedule."
+  },
+  {
+    "id": 5,
+    "name": "Tara",
+    "age": 25,
+    "bio": "I am super energetic. Always hiking, biking, skating, running, and on adventures. Come join me!"
+  },
+  {
+    "id": 6,
+    "name": "Selena",
+    "age": 25,
+    "bio": "I am from Ecuador and am new to town. I would love a friend to explore the city with."
+  }
+]
