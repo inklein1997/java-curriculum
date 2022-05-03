@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: U1-M4-Summative-Assessment
+  description: >-
+    A simple service for retrieving quotes, definitions, and magic 8-ball responses
+  version: 0.0.1
+servers:
+  - url: 'http://localhost:8080'
+    description: Local dev server
+paths:
+  /quote:
+    get:
+      summary: Retrieves a random quote
+      responses:
+        '200':
+          description: A quote object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+  /word:
+    get:
+      summary: Retrieves a random definition
+      responses:
+        '200':
+          description: A word object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Word'
+  /magic:
+    post:
+      summary: Retrieves a random answer to a given question
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                question:
+                  type: string
+      responses:
+        '200':
+          description: A quote object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'    
+            
+
+components:
+  schemas:
+    Quote:
+      properties:
+        id:
+          type: integer
+        author:
+          type: string
+        quote:
+          type: string
+      required:
+        - author
+        - quote
+    Word:
+      properties:
+        id:
+          type: integer
+        word:
+          type: string
+        definition:
+          type: string
+      required:
+        - word
+        - definition
+    Answer:
+      properties:
+        id:
+          type: integer
+        answer:
+          type: string
+        question:
+          type: string
