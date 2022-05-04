@@ -1,5 +1,6 @@
 package com.webService.webServices.controllers;
 
+import com.webService.webServices.models.Quote;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webService.webServices.models.Quote;
 import org.junit.Before;
