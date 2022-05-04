@@ -28,9 +28,7 @@ public class MagicEightBallControllerTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Before
-    public void setUp() {
-
-    }
+    public void setUp() {}
 
     @Test
     public void shouldReturnRandomMagicEightBall() throws Exception {
@@ -38,8 +36,8 @@ public class MagicEightBallControllerTest {
         mockMvc.perform(get("/magicEightBall"))
                 .andDo(print())
                 .andExpect(status().isOk())                              // ASSERT that we got 200 OK.
-                .andExpect(jsonPath("$.question").isNotEmpty())         // ASSERT that we got back a non-empty name.
+                .andExpect(jsonPath("$.question").isNotEmpty())         // ASSERT that we got back a non-empty question.
                 .andExpect(jsonPath("$.id").isNotEmpty())           // ASSERT that we got back a non-empty id.
-                .andExpect(jsonPath("$.answer").isNotEmpty());  // ASSERT that we got back a non-empty description.
+                .andExpect(jsonPath("$.answer").isNotEmpty());  // ASSERT that we got back a non-empty answer.
     }
 }

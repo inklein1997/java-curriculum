@@ -16,7 +16,6 @@ import java.util.Random;
 public class MagicEightBallController {
     private List<MagicEightBall> magicEightBallAnswers;
 
-
     private int correctInt;
 
     public MagicEightBallController() {
