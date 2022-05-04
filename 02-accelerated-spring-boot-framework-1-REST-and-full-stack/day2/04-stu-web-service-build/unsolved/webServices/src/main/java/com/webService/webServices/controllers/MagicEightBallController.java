@@ -16,6 +16,9 @@ import java.util.Random;
 public class MagicEightBallController {
     private List<MagicEightBall> magicEightBallAnswers;
 
+
+    private int correctInt;
+
     public MagicEightBallController() {
         magicEightBallAnswers= new ArrayList<>();
         magicEightBallAnswers.add(new MagicEightBall("1?", "1", 1));
@@ -30,6 +33,10 @@ public class MagicEightBallController {
         magicEightBallAnswers.add(new MagicEightBall("J?", "10", 10));
     }
 
+    public int getCorrectInt() {
+        return correctInt;
+    }
+
     @RequestMapping(value="/magicEightBall", method= RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public MagicEightBall getAnswer() {
@@ -37,8 +44,8 @@ public class MagicEightBallController {
         // Random number generator
         Random rand = new Random();
         // this makes one from 0 to 9
-        int randomInt = rand.nextInt(10);
-        int correctInt = randomInt;
+        int randomInt = rand.nextInt(9);
+//      correctInt = randomInt;
         System.out.println(correctInt);
 
         return magicEightBallAnswers.get(correctInt);

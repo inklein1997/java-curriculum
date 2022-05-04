@@ -1,6 +1,6 @@
 package com.webService.webServices.controllers;
 
-import com.webService.webServices.models.Quote;
+import com.webService.webServices.models.MagicEightBall;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webService.webServices.models.Quote;
 import org.junit.Before;
@@ -33,9 +33,13 @@ public class MagicEightBallControllerTest {
     }
 
     @Test
-    public void shouldReturnRandomQuote() throws Exception {
+    public void shouldReturnRandomMagicEightBall() throws Exception {
         // Arrange
-        Quote outputQuote = new Quote();
-        outputQuote.setQuote();
+        mockMvc.perform(get("/magicEightBall"))
+                .andDo(print())
+                .andExpect(status().isOk())                              // ASSERT that we got 200 OK.
+                .andExpect(jsonPath("$.question").isNotEmpty())         // ASSERT that we got back a non-empty name.
+                .andExpect(jsonPath("$.id").isNotEmpty())           // ASSERT that we got back a non-empty id.
+                .andExpect(jsonPath("$.answer").isNotEmpty());  // ASSERT that we got back a non-empty description.
     }
 }

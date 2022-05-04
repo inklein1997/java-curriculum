@@ -17,6 +17,9 @@ public class QuoteController {
 
     private List<Quote> quoteList;
 
+    private int correctInt;
+
+
     public QuoteController() {
         quoteList = new ArrayList<>();
         quoteList.add(new Quote("Matt", "There's so much information", 1));
@@ -33,6 +36,9 @@ public class QuoteController {
 //    quoteList.add( new Quote)
 
 
+    public int correctInt() {
+        return correctInt;
+    }
 
     @RequestMapping(value="/quote", method= RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
@@ -42,7 +48,7 @@ public class QuoteController {
         Random rand = new Random();
         // this makes one from 0 to 9
         int randomInt = rand.nextInt(9);
-        int correctInt = randomInt;
+        correctInt = randomInt;
         System.out.println(correctInt);
 
         return quoteList.get(correctInt);
