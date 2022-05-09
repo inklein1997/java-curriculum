@@ -42,9 +42,18 @@ public class MonthControllerTest {
     }
 
     @Test
-    public void shouldGetRandomMonth() throws Exception {
-        // ARRANGE
-        Month outputMonth = new Month(1, "January");
+    public void shouldGetRandomMonthWithStatusCode200() throws Exception {
+        mockMvc.perform(get("/randomMonth"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").isNotEmpty())
+                .andExpect(jsonPath("$.number").isNotEmpty());
+    }
 
+    @Test
+    public void shouldReturn422StatusCordeForOutOfRangeInteger() throws Exception {
+        mockMvc.perform(get("/month/0"))
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
     }
 }
