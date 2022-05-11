@@ -1,0 +1,171 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080/
+    description: Generated server url
+paths:
+  /subtract:
+    post:
+      tags:
+        - math-solution-controller
+      summary: subtractTwoInts
+      operationId: subtractInts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MathSolutionObjectInput'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/MathSolution'
+  /multiply:
+    post:
+      tags:
+        - math-solution-controller
+      summary: multiplyTwoInts
+      operationId: multiplyInts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MathSolutionObjectInput'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/MathSolution'
+        '422':
+          description: Unprocessable Entity
+  /divide:
+    post:
+      tags:
+        - math-solution-controller
+      summary: divideTwoInts
+      operationId: divideInts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MathSolutionObjectInput'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/MathSolution'
+        '422':
+          description: Unprocessable Entity
+  /add:
+    post:
+      tags:
+        - math-solution-controller
+      summary: addTwoInts
+      operationId: addInts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MathSolutionObjectInput'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/MathSolution'
+        '422':
+          description: Unprocessable Entity
+  /randomMonth:
+    get:
+      tags:
+        - month-controller
+      summary: getRandomMonth
+      operationId: getRandomMonth
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Month'
+        '422':
+          description: Unprocessable Entity
+  /month/{monthNumber}:
+    get:
+      tags:
+        - month-controller
+      summary: getMonthByInt
+      operationId: getMonthByNumber
+      parameters:
+        - name: monthNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Month'
+        '422':
+          description: Unprocessable Entity
+components:
+  schemas:
+    MathSolution:
+      required:
+        - operand1
+        - operand2
+      type: object
+      properties:
+        operand1:
+          type: integer
+          format: int32
+        operand2:
+          type: integer
+          format: int32
+        operation:
+          type: string
+        answer:
+          type: integer
+          format: int32
+          
+    MathSolutionObjectInput:
+      required:
+        - operand1
+        - operand2
+      type: object
+      properties:
+        operand1:
+          type: integer
+          format: int32
+        operand2:
+          type: integer
+          format: int32
+    Month:
+      required:
+        - number
+      type: object
+      properties:
+        number:
+          maximum: 12
+          minimum: 1
+          type: integer
+          format: int32
+        name:
+          type: string

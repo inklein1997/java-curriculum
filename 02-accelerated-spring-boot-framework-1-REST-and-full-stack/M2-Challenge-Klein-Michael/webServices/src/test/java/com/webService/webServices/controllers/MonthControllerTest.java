@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(MathSolutionController.class)
+@WebMvcTest(MonthController.class)
 public class MonthControllerTest {
 
     @Autowired
@@ -51,7 +51,7 @@ public class MonthControllerTest {
     }
 
     @Test
-    public void shouldReturn422StatusCordeForOutOfRangeInteger() throws Exception {
+    public void shouldReturn422StatusCodeForOutOfRangeInteger() throws Exception {
         mockMvc.perform(get("/month/0"))
                 .andDo(print())
                 .andExpect(status().isUnprocessableEntity());

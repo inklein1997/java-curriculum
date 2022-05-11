@@ -1,14 +1,13 @@
 package com.webService.webServices.controllers;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import com.webService.webServices.models.MathSolution;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import javax.xml.ws.Response;
 
 @RestController
 public class MathSolutionController {
@@ -28,6 +27,9 @@ public class MathSolutionController {
                 arithmetic = operands.getOperand1() * operands.getOperand2();
                 break;
             case "divide":
+                if (operands.getOperand2() == 0) {
+                    throw new IllegalArgumentException("You cannot divide by 0");
+                }
                 arithmetic = operands.getOperand1() / operands.getOperand2();
                 break;
             default:

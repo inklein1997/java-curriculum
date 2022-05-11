@@ -1,14 +1,14 @@
 package com.webService.webServices.models;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class MathSolution {
 
-    @NotEmpty
+    @NotNull(message="Please enter an integer")
     private Integer operand1;
 
-    @NotEmpty
+    @NotNull(message="Please enter an integer")
     private Integer operand2;
 
     private String operation;

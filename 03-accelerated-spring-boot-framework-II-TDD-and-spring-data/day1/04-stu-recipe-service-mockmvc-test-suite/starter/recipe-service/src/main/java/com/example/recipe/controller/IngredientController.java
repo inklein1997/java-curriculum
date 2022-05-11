@@ -22,7 +22,7 @@ public class IngredientController {
     }
 
     @GetMapping("/ingredients/{id}")
-    public Ingredient getIngrdient(@PathVariable Integer id) {
+    public Ingredient getIngredient(@PathVariable Integer id) {
         Optional<Ingredient> returnVal = repo.findById(id);
         if (returnVal.isPresent()) {
             return returnVal.get();

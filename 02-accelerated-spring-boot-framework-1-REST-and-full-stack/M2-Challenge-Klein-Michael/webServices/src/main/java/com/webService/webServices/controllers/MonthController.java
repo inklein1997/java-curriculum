@@ -55,7 +55,7 @@ public class MonthController {
                 monthObject.setName("December");
                 return monthObject;
             default:
-                throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "invalid month");
+                throw new IllegalArgumentException("You must enter an integer between 1 and 12");
         }
     }
 
