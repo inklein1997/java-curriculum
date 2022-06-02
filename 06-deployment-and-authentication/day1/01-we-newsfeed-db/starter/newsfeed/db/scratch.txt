@@ -1,0 +1,21 @@
+C:\Users\Michael Klein\Desktop\java-curriculum\06-deployment-and-authentication\day1\01-we-newsfeed-db\starter\newsfeed\db\data
+
+WHEN USING GIT BASH, MUST TURN ALL \ to / in path name
+
+
+FIRST CREATE IMAGE...
+docker image build -t newsfeed-db .
+
+THEN RUN CONTAINER...
+docker container run -d -p 3307:3306 \
+--env MYSQL_ROOT_PASSWORD=password \
+--volume=/c/users/michael\ klein/desktop/java-curriculum/06-deployment-and-authentication/day1/01-we-newsfeed-db/starter/newsfeed/db/data:/var/lib/mysql \
+--name=newsfeed-db newsfeed-db
+
+RUNS CONTAINER IN BASH SHELL
+docker container exec -it newsfeed-db bash
+
+COMMAND RUNS MYSQL CLI
+mysql --port 3307 -u root -p
+
+

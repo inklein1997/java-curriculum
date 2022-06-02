@@ -1,0 +1,8 @@
+docker image build -t rsvp-db .
+
+docker network create rsvpnetwork
+
+docker container run -d -p 3306:3306 \
+--env MYSQL_ROOT_PASSWORD=password \
+--volume=/c/users/michael\ klein/desktop/03-stu-rsvp-db/starter/rsvp-service/db/data:/var/lib/mysql \
+--network=rsvpnetwork --name=mysql-db rsvp-db

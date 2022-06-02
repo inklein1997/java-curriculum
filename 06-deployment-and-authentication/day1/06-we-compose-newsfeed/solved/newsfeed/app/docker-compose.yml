@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  db:
+    image: newsfeed-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    restart: always
+    ports:
+      - '3306:3306'
+    volumes:
+      - <Absolute path to data directory>:/var/lib/mysql
+
+  app:
+    image: newsfeed-app
+    restart: always
+    ports:
+      - '3001:3001'
+    environment:
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_HOST: db
+    depends_on:
+      - db

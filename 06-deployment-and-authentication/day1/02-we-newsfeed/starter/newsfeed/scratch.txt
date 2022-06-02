@@ -1,0 +1,13 @@
+docker container run -d -p 3306:3306 \
+--env MYSQL_ROOT_PASSWORD=<your password> \
+--volume=<your path to the data directory>:/var/lib/mysql \
+--name=newsfeed-db newsfeed-db
+
+docker container run -d \
+-p 3001:3001 \
+--env DB_USER=root \
+--env DB_NAME=newsfeed_db \
+--env DB_PASSWORD=password \
+--env DB_HOST=172.17.0.2 \
+--link newsfeed-db:db \
+--name=newsfeed-app newsfeed-app

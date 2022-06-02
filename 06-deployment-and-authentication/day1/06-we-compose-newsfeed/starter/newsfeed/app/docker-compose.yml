@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: newsfeed-db
+    environment:
+      MYSQL_ROOT_PASSWORD: '1234'
+      MYSQL_DATABASE: 'newsfeed_db'
+    restart: always
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - /c/Users/Michael Klein/Desktop/java-curriculum/06-deployment-and-authentication/day1/06-we-compose-newsfeed/starter/newsfeed/db/data:/var/lib/mysql
+  app:
+    image: newsfeed-app
+    restart: always
+    ports:
+      - '3001:3001'
+    environment:
+      DB_PASSWORD: '1234'
+      DB_DATABASE: 'newsfeed_db'
+      DB_USER: 'root'
+      DB_HOST: db
+    depends_on:
+      - db
