@@ -1,0 +1,1 @@
+insert into authorities (username, authority) values ('bill', 'REGISTERED_USER');
